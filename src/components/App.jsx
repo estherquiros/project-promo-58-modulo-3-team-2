@@ -1,4 +1,9 @@
 import "../styles/App.scss";
+import Logo from "../images/adalab.png"
+
+import Laptop from "../images/laptop-code-solid.svg"
+
+
 
 function App() {
   return (
@@ -7,10 +12,10 @@ function App() {
 
     <header className="header">
       <a className="header__brand" href="./" title="Haz click para volver a la página inicial">
-        <img className="header__companyLogo" src="./images/laptop-code-solid.svg" alt="Logo proyectos molones">
+        <img className="header__companyLogo" src={Laptop} alt="Logo proyectos molones"/>
         <h1 className="header__title">Proyectos molones</h1>
       </a>
-      <img className="logoSponsor" src="./images/adalab.png" alt="Logo Adalab">
+      <img className="logoSponsor" src={Logo} alt="Logo Adalab"/>
     </header>
     
     <main className="main">
@@ -56,30 +61,30 @@ function App() {
         <h2 className="title">Información</h2>
         <fieldset className="addForm__group">
           <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
-          <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto">
-          <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan">
+          <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto"/>
+          <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan"/>
           <div className="addForm__2col">
-            <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio">
-            <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo">
+            <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio"/>
+            <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo"/>
           </div>         
-          <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías">
+          <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías"/>
           <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5"></textarea>
         </fieldset>
     
         <fieldset className="addForm__group">
           <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-          <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre">
-          <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo">
+          <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre"/>
+          <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"/>
         </fieldset>
     
         <fieldset className="addForm__group--upload">
           <label className="button">
             Subir foto del proyecto
-            <input className="addForm__hidden" type="file">
+            <input className="addForm__hidden" type="file"/>
           </label>
           <label className="button">
             Subir foto de la autora
-            <input className="addForm__hidden" type="file">
+            <input className="addForm__hidden" type="file"/>
           </label>
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
@@ -88,7 +93,7 @@ function App() {
     </main>
 
     <footer className="footer">
-      <img className="logoSponsor" src="./images/adalab.png" alt="Logo Adalab">
+      <img className="logoSponsor" src={Logo} alt="Logo Adalab"/>
     </footer>
 
   </div>
