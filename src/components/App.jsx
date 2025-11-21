@@ -19,30 +19,77 @@ import { useState } from "react";
 
 function App() {
   const [formData, setFormData] = useState({
-    name: "Elegant Workspace",
-    slogan: "Diseños exclusivos",
+    name: "",
+    slogan: "",
     repo: "",
     demo: "",
-    technologies: "React JS - HTML - CSS",
-    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias rem ab, vero illo nostrum sequi quasi placeat impedit facilis dolore inventore nihil sint amet soluta! Accusamus ex illum animi!",
-    autor:"Emmelie Björklund",
-    job: "Full Stack Developer",
+    technologies: "",
+    desc:"",
+    author:"",
+    job: "",
+    image:"",
+    photo:"",
   });
 
 
-  const handleInput = (ev) => {
-    const {name, value} = ev.target;
-     setFormData({
-      ...formData,
-      [name]: value
-    });
-
+   const handleName = (ev) => {
+  setFormData({
+    ...formData,
+    name: ev.target.value,
+  });
+ };
+    const handleSlogan = (ev) => {
+  setFormData({
+    ...formData,
+    slogan: ev.target.value,
+  });
+ };
+    const handleRepo = (ev) => {
+  setFormData({
+    ...formData,
+    repo: ev.target.value,
+  });
+ };
+    const handleDemo = (ev) => {
+  setFormData({
+    ...formData,
+    demo: ev.target.value,
+  });
+ };
+    const handleTechnologies = (ev) => {
+  setFormData({
+    ...formData,
+    technologies: ev.target.value,
+  });
+ };
+    const handleDesc = (ev) => {
+  setFormData({
+    ...formData,
+    desc: ev.target.value,
+  });
+ };
+    const handleAuthor = (ev) => {
+  setFormData({
+    ...formData,
+    author: ev.target.value,
+  });
+ };
+    const handleJob = (ev) => {
+  
+  
   
 
-}
+      setFormData({
+    ...formData,
+    job: ev.target.value,
+  });
+ };
+
+
 const handleSubmit = (ev) => {
   ev.preventDefault();
 };
+
   return (
 
     <div className="container">
@@ -70,19 +117,18 @@ const handleSubmit = (ev) => {
             <div className="card__author">
               <div className="card__authorPhoto"></div>
               <p className="card__job">
-                {formData.job}
+                {formData.job ===""? "Full Stack Developer":formData.job}
               </p>
-              <h3 className="card__name">{formData.autor}</h3>
+              <h3 className="card__name">{formData.author ===""? "Emmelie Björklund":formData.author}</h3>
             </div>
 
             <div className="card__project">
-              <h3 className="card__name">{formData.name}</h3>
-              <p className="card__slogan">{formData.slogan}</p>
+              <h3 className="card__name">{formData.name ===""? "Elegant workspace":formData.name}</h3>
+              <p className="card__slogan">{formData.slogan ===""? "Diseños exlusivos":formData.slogan}</p>
               <h3 className="card__descriptionTitle">Product description</h3>
-              <p className="card__description">{formData.desc}</p>
-
+              <p className="card__description">{formData.desc ===""? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi corporis et molestiae libero iure repellendus possimus voluptates deleniti eligendi perspiciatis! Atque voluptates aut cum, quam accusantium nostrum accusamus fuga dicta.":formData.desc}</p>
               <div className="card__technicalInfo">
-                <p className="card__technologies">{formData.technologies}</p>
+                <p className="card__technologies">{formData.technologies ===""? "React JS - HTML - CSS":formData.technologies}</p>
 
                 <a className="icon icon__www" href={formData.demo} title="Haz click para ver el proyecto online">
                   {formData.demo}
@@ -98,20 +144,20 @@ const handleSubmit = (ev) => {
           <h2 className="title">Información</h2>
           <fieldset className="addForm__group">
             <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
-            <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onInput={handleInput} />
-            <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan" onInput={handleInput}/>
+            <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onInput={handleName} />
+            <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan" onInput={handleSlogan}/>
             <div className="addForm__2col">
-              <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio"onInput={handleInput} />
-              <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo"onInput={handleInput} />
+              <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio"onInput={handleRepo} />
+              <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo"onInput={handleDemo} />
             </div>
-            <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías"onInput={handleInput} />
-            <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" onInput={handleInput}></textarea>
+            <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías"onInput={handleTechnologies} />
+            <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" onInput={handleDesc}></textarea>
           </fieldset>
 
           <fieldset className="addForm__group">
             <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-            <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre" onInput={handleInput}/>
-            <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"onInput={handleInput} />
+            <input className="addForm__input" type="text" name="author" id="author" placeholder="Nombre" onInput={handleAuthor}/>
+            <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"onInput={handleJob} />
           </fieldset>
 
           <fieldset className="addForm__group--upload">
