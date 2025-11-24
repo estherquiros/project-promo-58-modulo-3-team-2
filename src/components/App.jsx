@@ -3,6 +3,8 @@ import { useState } from "react";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Hero from "./layout/Hero";
+import Preview from "./Preview";
+import Form from "./Form";
 
 
 // VARIABLES
@@ -35,97 +37,71 @@ function App() {
 
 
   const changeData = (fieldName, value) => {
-    if (fieldName === formData.name) {
-      setFormData(value)
+    if (fieldName === "name") {
+      setFormData({
+        ...formData,
+        name:value
+      });
     }
-    if (fieldName === formData.slogan) {
-      setFormData(value)
+    if (fieldName === "slogan") {
+      setFormData({
+        ...formData,
+        slogan:value
+      });
     }
-    if (fieldName === formData.repo) {
-      setFormData(value)
+    if (fieldName === "repo") {
+      setFormData({
+        ...formData,
+        repo:value
+      });
     }
-    if (fieldName === formData.demo) {
-      setFormData(value)
+    if (fieldName === "demo") {
+      setFormData({
+        ...formData,
+        demo:value
+      });
     }
-    if (fieldName === formData.technologies) {
-      setFormData(value)
+    if (fieldName === "technologies") {
+      setFormData({
+        ...formData,
+        technologies:value
+      });
     }
-    if (fieldName === formData.desc) {
-      setFormData(value)
+    if (fieldName === "desc") {
+      setFormData({
+        ...formData,
+        desc:value
+      })
     }
-    if (fieldName === formData.author) {
-      setFormData(value)
+    if (fieldName === "author") {
+      setFormData({
+        ...formData,
+        author:value
+      })
     }
-    if (fieldName === formData.job) {
-      setFormData(value)
+    if (fieldName === "job") {
+      setFormData({
+        ...formData,
+        job:value
+      })
     }
-    if (fieldName === formData.image){
-      setFormData(value)
+    if (fieldName === "image"){
+      setFormData({
+        ...formData,
+        image:value
+      })
     }
-    if (fieldName === formData.photo){
-      setFormData(value)
+    if (fieldName === "photo"){
+      setFormData({
+        ...formData,
+        photo:value
+      })
     }
   }
 
   const handleInput = (ev) =>
 
     {changeData (ev.target.id,ev.target.value)};
-
-
-
-
-  /* const handleName = (ev) => {
-  setFormData({
-    ...formData,
-    name: ev.target.value,
-  });
- };
-    const handleSlogan = (ev) => {
-  setFormData({
-    ...formData,
-    slogan: ev.target.value,
-  });
- };
-    const handleRepo = (ev) => {
-  setFormData({
-    ...formData,
-    repo: ev.target.value,
-  });
- };
-    const handleDemo = (ev) => {
-  setFormData({
-    ...formData,
-    demo: ev.target.value,
-  });
- };
-    const handleTechnologies = (ev) => {
-  setFormData({
-    ...formData,
-    technologies: ev.target.value,
-  });
- };
-    const handleDesc = (ev) => {
-  setFormData({
-    ...formData,
-    desc: ev.target.value,
-  });
- };
-    const handleAuthor = (ev) => {
-  setFormData({
-    ...formData,
-    author: ev.target.value,
-  });
- };
-    const handleJob = (ev) => {
-  
-  
-  
-
-      setFormData({
-    ...formData,
-    job: ev.target.value,
-  });
- };*/
 
 
 const handleSubmit = (ev) => {
@@ -140,71 +116,10 @@ const handleSubmit = (ev) => {
 
       <main className="main">
         <Hero />
+       <Preview formData = {formData}/>
 
-        <section className="preview">
-          <div className="projectImage"></div>
-          <article className="card">
-            <h2 className="card__projectTitle"><span className="card__projectTitle--text">Personal project card</span></h2>
 
-            <div className="card__author">
-              <div className="card__authorPhoto"></div>
-              <p className="card__job">
-                {formData.job ===""? "Full Stack Developer":formData.job}
-              </p>
-              <h3 className="card__name">{formData.author ===""? "Emmelie Björklund":formData.author}</h3>
-            </div>
-
-            <div className="card__project">
-              <h3 className="card__name">{formData.name ===""? "Elegant workspace":formData.name}</h3>
-              <p className="card__slogan">{formData.slogan ===""? "Diseños exlusivos":formData.slogan}</p>
-              <h3 className="card__descriptionTitle">Product description</h3>
-              <p className="card__description">{formData.desc ===""? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi corporis et molestiae libero iure repellendus possimus voluptates deleniti eligendi perspiciatis! Atque voluptates aut cum, quam accusantium nostrum accusamus fuga dicta.":formData.desc}</p>
-              <div className="card__technicalInfo">
-                <p className="card__technologies">{formData.technologies ===""? "React JS - HTML - CSS":formData.technologies}</p>
-
-                <a className="icon icon__www" href={formData.demo} title="Haz click para ver el proyecto online">
-                  {formData.demo}
-                </a>
-                <a className="icon icon__github" href={formData.repo} title="Haz click para ver el código del proyecto">
-                  {formData.repo}
-                </a>
-              </div>
-            </div>
-          </article>
-        </section>
-        <form onSubmit={handleSubmit} className="addForm">
-          <h2 className="title">Información</h2>
-          <fieldset className="addForm__group">
-            <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
-            <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onInput={handleInput} />
-            <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan" onInput={handleInput}/>
-            <div className="addForm__2col">
-              <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio"onInput={handleInput} />
-              <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo"onInput={handleInput} />
-            </div>
-            <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías"onInput={handleInput} />
-            <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" onInput={handleInput}></textarea>
-          </fieldset>
-
-          <fieldset className="addForm__group">
-            <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-            <input className="addForm__input" type="text" name="author" id="author" placeholder="Nombre" onInput={handleInput}/>
-            <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo"onInput={handleInput} />
-          </fieldset>
-
-          <fieldset className="addForm__group--upload">
-            <label className="button">
-              Subir foto del proyecto
-              <input className="addForm__hidden" type="file" />
-            </label>
-            <label className="button">
-              Subir foto de la autora
-              <input className="addForm__hidden" type="file" />
-            </label>
-            <button className="button--large">Guardar proyecto</button>
-          </fieldset>
-
-        </form>
+       <Form handleInput = {handleInput} handleSubmit = {handleSubmit}/>
       </main>
 
      <Footer />
