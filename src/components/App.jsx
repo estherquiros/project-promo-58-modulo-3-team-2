@@ -6,18 +6,10 @@ import Hero from "./layout/Hero";
 import Preview from "./Preview";
 import Form from "./Form";
 
-
 // VARIABLES
-
-
 
 // FUNCIONES
 // EVENTOS
-
-
-
-
-
 
 //HTML
 
@@ -28,105 +20,108 @@ function App() {
     repo: "",
     demo: "",
     technologies: "",
-    desc:"",
-    author:"",
+    desc: "",
+    author: "",
     job: "",
-    image:"",
-    photo:"",
+    image: "",
+    photo: "",
   });
-
 
   const changeData = (fieldName, value) => {
     if (fieldName === "name") {
       setFormData({
         ...formData,
-        name:value
+        name: value,
       });
     }
     if (fieldName === "slogan") {
       setFormData({
         ...formData,
-        slogan:value
+        slogan: value,
       });
     }
     if (fieldName === "repo") {
       setFormData({
         ...formData,
-        repo:value
+        repo: value,
       });
     }
     if (fieldName === "demo") {
       setFormData({
         ...formData,
-        demo:value
+        demo: value,
       });
     }
     if (fieldName === "technologies") {
       setFormData({
         ...formData,
-        technologies:value
+        technologies: value,
       });
     }
     if (fieldName === "desc") {
       setFormData({
         ...formData,
-        desc:value
-      })
+        desc: value,
+      });
     }
     if (fieldName === "author") {
       setFormData({
         ...formData,
-        author:value
-      })
+        author: value,
+      });
     }
     if (fieldName === "job") {
       setFormData({
         ...formData,
-        job:value
-      })
+        job: value,
+      });
     }
-    if (fieldName === "image"){
+    if (fieldName === "image") {
       setFormData({
         ...formData,
-        image:value
-      })
+        image: value,
+      });
     }
-    if (fieldName === "photo"){
+    if (fieldName === "photo") {
       setFormData({
         ...formData,
-        photo:value
-      })
+        photo: value,
+      });
     }
-  }
+  };
 
-  const handleInput = (ev) =>
+  const handleInput = (ev) => {
+    changeData(ev.target.id, ev.target.value);
+  };
 
-    {changeData (ev.target.id,ev.target.value)};
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
 
-
-const handleSubmit = (ev) => {
-  ev.preventDefault();
-};
+  const handleAuthorImage = (image) => {
+    setFormData({
+      ...formData,
+      photo: image,
+    });
+  };
 
   return (
-
     <div className="container">
-
-     <Header />
+      <Header />
 
       <main className="main">
         <Hero />
-       <Preview formData = {formData}/>
+        <Preview formData={formData} />
 
-
-       <Form handleInput = {handleInput} handleSubmit = {handleSubmit}/>
+        <Form
+          handleInput={handleInput}
+          handleSubmit={handleSubmit}
+          handleAuthorImage={handleAuthorImage}
+        />
       </main>
 
-     <Footer />
-
+      <Footer />
     </div>
-
-
   );
 }
 
