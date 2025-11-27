@@ -105,6 +105,13 @@ function App() {
     });
   };
 
+  const handleHeroImage = (image) => {
+    setFormData({
+      ...formData,
+      image: image,
+    });
+  };
+
   return (
     <div className="container">
       <Header />
@@ -117,6 +124,7 @@ function App() {
           handleInput={handleInput}
           handleSubmit={handleSubmit}
           handleAuthorImage={handleAuthorImage}
+          handleHeroImage={handleHeroImage}
         />
       </main>
 

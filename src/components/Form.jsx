@@ -1,6 +1,11 @@
 import GetAvatar from "../components/GetAvatar";
 
-function Form({ handleInput, handleAuthorImage, handleSubmit }) {
+function Form({
+  handleInput,
+  handleAuthorImage,
+  handleHeroImage,
+  handleSubmit,
+}) {
   return (
     <form onSubmit={handleSubmit} className="addForm">
       <h2 className="title">Información</h2>
@@ -81,8 +86,10 @@ function Form({ handleInput, handleAuthorImage, handleSubmit }) {
 
       <fieldset className="addForm__group--upload">
         <label className="button">
-          Subir foto del proyecto
-          <input className="addForm__hidden" type="file" />
+          <GetAvatar
+            updateAvatar={handleHeroImage}
+            text="Subir foto del proyecto"
+          />
         </label>
         <label className="button">
           <GetAvatar
