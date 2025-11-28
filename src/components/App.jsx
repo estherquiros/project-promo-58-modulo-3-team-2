@@ -121,6 +121,7 @@ function App() {
         <Preview formData={formData} />
 
         <Form
+        formData={formData}
           handleInput={handleInput}
           handleSubmit={handleSubmit}
           handleAuthorImage={handleAuthorImage}

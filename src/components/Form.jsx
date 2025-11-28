@@ -1,11 +1,34 @@
 import GetAvatar from "../components/GetAvatar";
 
+
+
 function Form({
+  formData,
   handleInput,
   handleAuthorImage,
   handleHeroImage,
   handleSubmit,
-}) {
+}) 
+
+{
+  const handleClick = () => {
+  fetch ("https://dev.adalab.es/api/projectCard",
+    {
+      method: "POST",
+      headers: {"Content-Type" : "application/json"},
+      body: JSON.stringify(formData),
+    }
+    .then (res => res.json())
+    .then (responseData => {
+      if (responseData.success) {
+         console.log("Guardado OK", responseData);
+
+      }
+      
+    })
+
+  )
+}
   return (
     <form onSubmit={handleSubmit} className="addForm">
       <h2 className="title">Información</h2>
@@ -99,7 +122,7 @@ function Form({
             text="Subir foto de la autora"
           />
         </label>
-        <button className="button--large">Guardar proyecto</button>
+        <button onClick={handleClick} className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
   );
