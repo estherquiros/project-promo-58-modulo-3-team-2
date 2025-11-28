@@ -1,5 +1,5 @@
 import "../styles/App.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Hero from "./layout/Hero";
@@ -14,7 +14,8 @@ import Form from "./Form";
 //HTML
 
 function App() {
-  const [formData, setFormData] = useState({
+
+  const inicialData = {
     name: "",
     slogan: "",
     repo: "",
@@ -25,9 +26,27 @@ function App() {
     job: "",
     image: "",
     photo: "",
-  });
+  };
+
+  const[formData, setFormData] = useState (
+    JSON.parse(localStorage.getItem('form.backup')) || inicialData 
+  );
+
+  useEffect(() => {
+    localStorage.setItem('form.backup', JSON.stringify(formData));
+    console.log('✅ Guardado en localStorage:', formData);
+  }, [formData]);
+
+
 
   const changeData = (fieldName, value) => {
+    setFormData({
+      ...formData,
+      [fieldName]: value,
+    });
+  };
+
+  /*const changeData = (fieldName, value) => {
     if (fieldName === "name") {
       setFormData({
         ...formData,
@@ -89,7 +108,7 @@ function App() {
       });
     }
   };
-
+  */
   const handleInput = (ev) => {
     changeData(ev.target.id, ev.target.value);
   };
