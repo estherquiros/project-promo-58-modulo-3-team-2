@@ -46,69 +46,6 @@ function App() {
     });
   };
 
-  /*const changeData = (fieldName, value) => {
-    if (fieldName === "name") {
-      setFormData({
-        ...formData,
-        name: value,
-      });
-    }
-    if (fieldName === "slogan") {
-      setFormData({
-        ...formData,
-        slogan: value,
-      });
-    }
-    if (fieldName === "repo") {
-      setFormData({
-        ...formData,
-        repo: value,
-      });
-    }
-    if (fieldName === "demo") {
-      setFormData({
-        ...formData,
-        demo: value,
-      });
-    }
-    if (fieldName === "technologies") {
-      setFormData({
-        ...formData,
-        technologies: value,
-      });
-    }
-    if (fieldName === "desc") {
-      setFormData({
-        ...formData,
-        desc: value,
-      });
-    }
-    if (fieldName === "author") {
-      setFormData({
-        ...formData,
-        author: value,
-      });
-    }
-    if (fieldName === "job") {
-      setFormData({
-        ...formData,
-        job: value,
-      });
-    }
-    if (fieldName === "image") {
-      setFormData({
-        ...formData,
-        image: value,
-      });
-    }
-    if (fieldName === "photo") {
-      setFormData({
-        ...formData,
-        photo: value,
-      });
-    }
-  };
-  */
   const handleInput = (ev) => {
     changeData(ev.target.id, ev.target.value);
   };
