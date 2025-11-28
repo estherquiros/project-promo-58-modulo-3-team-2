@@ -3,11 +3,16 @@ import Card from "./Card";
 function Preview({ formData }) {
   return (
     <section className="preview">
-      <div className="projectImage">
-        <img src={formData.image} />
-      </div>
+      <div
+        className="projectImage"
+        style={{
+          backgroundImage: formData.image ? `url(${formData.image})` : "",
+        }}
+      />
+
       <Card formData={formData} />
     </section>
   );
 }
+
 export default Preview;

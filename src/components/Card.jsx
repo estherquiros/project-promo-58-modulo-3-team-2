@@ -6,9 +6,12 @@ function Card({ formData }) {
       </h2>
 
       <div className="card__author">
-        <div className="card__authorPhoto">
-          <img src={formData.photo} />
-        </div>
+        <div
+          className="card__authorPhoto"
+          style={{
+            backgroundImage: formData.photo ? `url(${formData.photo})` : "",
+          }}
+        ></div>
         <p className="card__job">
           {formData.job === "" ? "Full Stack Developer" : formData.job}
         </p>

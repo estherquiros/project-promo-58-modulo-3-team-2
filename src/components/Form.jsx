@@ -87,12 +87,14 @@ function Form({
       <fieldset className="addForm__group--upload">
         <label className="button">
           <GetAvatar
+            avatar={FormData.image}
             updateAvatar={handleHeroImage}
             text="Subir foto del proyecto"
           />
         </label>
         <label className="button">
           <GetAvatar
+            avatar={FormData.photo}
             updateAvatar={handleAuthorImage}
             text="Subir foto de la autora"
           />
