@@ -28,7 +28,7 @@ function Form({
     })
 
   )
-}
+};
   return (
     <form onSubmit={handleSubmit} className="addForm">
       <h2 className="title">Información</h2>
