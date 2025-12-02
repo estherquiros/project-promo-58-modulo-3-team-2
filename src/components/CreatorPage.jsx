@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import {Link} from "react-router";
 
 import Hero from "../components/layout/Hero";
 import Preview from "../components/Preview";
 import Form from "../components/Form";
+
 
 function CreatorPage() {
   const inicialData = {
@@ -58,7 +60,9 @@ function CreatorPage() {
 
   return (
     <>
-      <Hero />
+      <Hero>
+        <Link className="button--link" to="/">Volver al listado</Link>
+      </Hero>
       <Preview formData={formData} />
       <Form
         formData={formData}

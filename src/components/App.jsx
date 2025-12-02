@@ -15,8 +15,8 @@ function App() {
 
       <main className="main">
         <Routes>
-          <Route path="/" element={<CreatorPage />} />
-          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/creator" element={<CreatorPage/>} />
         </Routes>
       </main>
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GetAvatar from "../components/GetAvatar";
 
 
@@ -11,24 +12,28 @@ function Form({
 }) 
 
 {
+  const [savedUrl,setSavedUrl] = useState(null);
   const handleClick = () => {
   fetch ("https://dev.adalab.es/api/projectCard",
     {
       method: "POST",
       headers: {"Content-Type" : "application/json"},
       body: JSON.stringify(formData),
-    }
+    })
     .then (res => res.json())
     .then (responseData => {
       if (responseData.success) {
          console.log("Guardado OK", responseData);
+         setSavedUrl( responseData.cardURL);
 
+      } else {
+        console.log("Guardado KO", responseData);
+        
       }
       
     })
 
-  )
-}
+};
   return (
     <form onSubmit={handleSubmit} className="addForm">
       <h2 className="title">Información</h2>
@@ -41,6 +46,7 @@ function Form({
           id="name"
           placeholder="Nombre del proyecto"
           onInput={handleInput}
+          value={formData.name}
         />
         <input
           className="addForm__input"
@@ -49,6 +55,7 @@ function Form({
           id="slogan"
           placeholder="Slogan"
           onInput={handleInput}
+          value={formData.slogan}
         />
         <div className="addForm__2col">
           <input
@@ -58,6 +65,7 @@ function Form({
             id="repo"
             placeholder="Repositorio"
             onInput={handleInput}
+            value={formData.repo}
           />
           <input
             className="addForm__input"
@@ -66,6 +74,7 @@ function Form({
             id="demo"
             placeholder="Demo"
             onInput={handleInput}
+            value={formData.demo}
           />
         </div>
         <input
@@ -75,6 +84,7 @@ function Form({
           id="technologies"
           placeholder="Tecnologías"
           onInput={handleInput}
+          value={formData.technologies}
         />
         <textarea
           className="addForm__input"
@@ -84,6 +94,7 @@ function Form({
           placeholder="Descripción"
           rows="5"
           onInput={handleInput}
+          value={formData.desc}
         ></textarea>
       </fieldset>
 
@@ -96,6 +107,7 @@ function Form({
           id="author"
           placeholder="Nombre"
           onInput={handleInput}
+          value={formData.author}
         />
         <input
           className="addForm__input"
@@ -104,6 +116,7 @@ function Form({
           id="job"
           placeholder="Trabajo"
           onInput={handleInput}
+          value={formData.job}
         />
       </fieldset>
 
@@ -123,8 +136,11 @@ function Form({
           />
         </label>
         <button onClick={handleClick} className="button--large">Guardar proyecto</button>
+        {savedUrl && (
+        <small>Proyecto guardado:  <a href={savedUrl} target="_blank" rel="noopener noreferrer">{savedUrl}</a> </small>)}
       </fieldset>
     </form>
   );
 }
 export default Form;
+
