@@ -26,7 +26,6 @@ function CreatorPage() {
 
   useEffect(() => {
     localStorage.setItem("form.backup", JSON.stringify(formData));
-    console.log("✅ Guardado en localStorage:", formData);
   }, [formData]);
 
   const changeData = (fieldName, value) => {
@@ -61,7 +60,7 @@ function CreatorPage() {
   return (
     <>
       <Hero>
-        <Link className="button--link" to="/">Volver al listado</Link>
+        <Link className="button--link" to="/">Volver al inicio</Link>
       </Hero>
       <Preview formData={formData} />
       <Form

@@ -23,13 +23,9 @@ function Form({
     .then (res => res.json())
     .then (responseData => {
       if (responseData.success) {
-         console.log("Guardado OK", responseData);
          setSavedUrl( responseData.cardURL);
 
-      } else {
-        console.log("Guardado KO", responseData);
-        
-      }
+      } 
       
     })
 
